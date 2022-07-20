@@ -1,16 +1,27 @@
 <template>
 <Navbar />
-  <router-view/>
+<div class="my-container">
+  <router-view/> 
+</div>
+ 
+  
 </template>
 
 <script>
 import Navbar from "./components/Navbar.vue";
-
+import Mycontainer from "./components/mycontainer.vue"
 export default {
   components: {
     Navbar,
+    Mycontainer,
   },
-};
+  methods: {
+    navToggle() {
+        
+        }
+    }
+  }
+
 </script>
 
 <style>
@@ -64,40 +75,9 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;       /* roundness of the scroll thumb */
   border: 2px solid var(--text-mute);  /* creates padding around scroll thumb */
 }
-
-.navbar{
-    width:250px;
-    height: 100vh;
-    position:fixed;
-    background-color: var(--nav-color);
-    transition: 0.5s;
-}
-#sidebar ul li a{
-    transition:0.5s;
-    font-weight: 500;
-}
-
-
-#sidebar ul li a:hover{
-    margin-left: 3%;
-    color: var(--highlight-color)!important;
-
-}
-#sidebar ul li a:focus{
-    margin-left: 3%;
-    color: var(--highlight-color)!important;
-}
-
-#sidebar li a:active{
-    margin-left: 3%;
-    color: var(--highlight-color)!important;
-}
-
-
-
 .my-container{
     overflow: hidden;
-    margin-left: 255px;
+    margin-left:255px;
     
 }
 
@@ -114,15 +94,17 @@ body::-webkit-scrollbar-thumb {
         height: 100vh;
         position:fixed;
         margin-left: -300px;
+        top:0;
         background-color: var(--nav-color);
         transition: 0.5s;
     }
     .my-container{
-        margin: 0%;
+        margin: 1%;
         transition: 0.4s;
     }
     
     .active-nav{
+      height: 100vh;
         margin-left: 0%;
     }
     
@@ -132,10 +114,6 @@ body::-webkit-scrollbar-thumb {
     #menu-btn{
         display:inline;
         position: fixed;
-        background-color: lightgray;
-    }
-    #menu-btn:focus{
-        box-shadow: 0 0 0 0.25rem gray;
     }
 }
 </style>

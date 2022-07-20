@@ -1,7 +1,5 @@
 <template>
- <div class="my-container">
  <section id="home">
-
 <div class="homebox container d-flex flex-column">
     <div class="circlecontainer">
     <img class=" py-2 homepic" src="https://i.ibb.co/x769VpW/P2w9-G5-AB-male-5-cartoon4.png" alt="Jesse Spence Portfolio Picture">
@@ -16,20 +14,41 @@
 
 </div>
     </section>
-	</div>
+<input type="color" v-model="backgroundColor" @change="changeBackgroundColor()">
 </template>
 
-<script></script>
+<script>
+export default {
+    data() {
+        return {
+            backgroundColor: '#D5BF86',
+            color: false,
+        };
+    },
+    methods: {
+        changeBackgroundColor() {
+            let cssVariables = document.querySelector("root");
+    cssVariables.style.setProperty("--background-color", this.backgroundColor)
+}
+    },
+}
+
+</script>
 
 <style scoped>
 body{
 	text-align:center;
+}
+input{
+    z-index: 100000;
+    background-color: pink !important;
 }
 #home{
     text-shadow: 1px 2px 3px var(--el-color);
     height:100vh;
 }
 .homebox{
+    z-index: -10000;
     transform: scale(1.3);
     padding-top: 12%;
     padding-left: 40%; 

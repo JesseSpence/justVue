@@ -6,39 +6,38 @@
 <ul class="mb-5 navbar-nav d-flex flex-column mt-5 w-100">
     <li class="nav-item py-1 w-100">
         <a href="#home"  class="nav-link fw-bold textclr pl-4">
-          <i class="pe-2 fa-solid fa-house"></i>
-          <router-link class="nav-link active" to="/">HOME</router-link>
+          <router-link class="nav-link active" to="/"><i class="pe-2 fa-solid fa-house"></i>HOME</router-link>
           </a>
     </li>
     <li class="nav-item py-1 w-100">
-        <a class="nav-link fw-bold textclr pl-4"><i class="pe-2 fa-solid fa-user"></i>
-        <router-link class="nav-link active" to="/About">ABOUT</router-link>
+        <a class="nav-link fw-bold textclr pl-4">
+        <router-link class="nav-link active" to="/About"><i class="pe-2 fa-solid fa-user"></i>ABOUT</router-link>
         </a>
     </li>
     <li class="nav-item py-1 w-100">
-        <a class="nav-link fw-bold textclr pl-4"><i class="pe-2 fa-solid fa-hammer"></i>
-        <router-link class="nav-link active" to='/ProjectsView'>PROJECTS</router-link>
-        </a>
-    </li>
-    
-    <li class="nav-item py-1 w-100">
-        <a href="#testimonials" class="nav-link fw-bold textclr pl-4"><i class="pe-2 fa-solid fa-comments"></i>
-        <router-link class="nav-link active" to='/Testimonials'>TESTIMONIALS</router-link>
+        <a class="nav-link fw-bold textclr pl-4">
+        <router-link class="nav-link active" to='/ProjectsView'><i class="pe-2 fa-solid fa-hammer"></i>PROJECTS</router-link>
         </a>
     </li>
     
     <li class="nav-item py-1 w-100">
-        <a href="#contact" class="nav-link fw-bold textclr pl-4"><i class="pe-2 fa-solid fa-paper-plane"></i>
-        <router-link class="nav-link active" to='/Contact'>CONTACT</router-link>
+        <a href="#testimonials" class="nav-link fw-bold textclr pl-4">
+        <router-link class="nav-link active" to='/Testimonials'><i class="pe-2 fa-solid fa-comments"></i>TESTIMONIALS</router-link>
+        </a>
+    </li>
+    
+    <li class="nav-item py-1 w-100">
+        <a href="#contact" class="nav-link fw-bold textclr pl-4">
+        <router-link class="nav-link active" to='/Contact'><i class="pe-2 fa-solid fa-paper-plane"></i>CONTACT</router-link>
         </a>
     </li>
 </ul>
 
-    <h5 class="text-center textclr"><span class="elcolor">☚</span>Jesse Spence<span class="elcolor">☛</span></h5>
+    <h5 class="text-center textclr mt-5"><span class="elcolor">☚</span>Jesse Spence<span class="elcolor">☛</span></h5>
     <p class="text-center elcolor">copyright Design by</p> <p class="text-center elcolor">© Jesse at Lifechoices</p>
         
 </nav>
-    <button class="btn my-4" id="menu-btn">Toggle Sidebar</button>
+    <button class=" my-4" v-on:click="navToggle()" id="menu-btn"><img src="https://i.ibb.co/WVGrc0Z/P2w9-G5-AB-male-5-cartoon5-removebg-preview.png"></button>
 </template>
 
 <script>
@@ -46,16 +45,47 @@
 		components: {},
 
     methods: {
-
-      
+        navToggle() {
+        let sidebar = document.querySelector("#sidebar")
+            let container = document.querySelector(".my-container")
+        
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        }
     },
+      
+    
     computed:{
 
     }
 	};
 </script>
 
-<style>
+<style scoped>
+button {
+    background: transparent !important ;
+    z-index: 2000;
+   border: 0px solid !important;
+}
+button img{
+    position: fixed;
+    top:0;
+    height: 50px;
+    transition: all ease-in-out .5s;
+    
+}
+img:hover{
+    filter: drop-shadow(0px 5px 3px var(--text-mute));
+    transform: scale(1.8);
+}
+
+/* img::before{
+    content: "toggle";
+    position: absolute;
+background-color: brown;
+    width: 50000px;
+    height:50000px;
+} */
 router-link{
   position: absolute;
 }
@@ -66,6 +96,7 @@ padding-left:10px;
 }
 
 .navbar{
+    z-index: 100;
     width:250px;
     height: 100vh;
     position:fixed;

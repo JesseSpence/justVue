@@ -1,5 +1,4 @@
 <template>
-	<div class="my-container">
 		<section class="my-5" id="about">
     <h1 class="section-heading">About me</h1>
 
@@ -132,9 +131,6 @@
 
         </div>
         </div>
-    
-    
-
 
 </section>
 
@@ -201,21 +197,23 @@
      </div>
  </div>
 </section>
-	</div>
+	
 </template>
 <script>
 	export default {
-		computed: {
-	
-		},
+		
 		data() {
 			return {
 				
 			};
 		},
 		methods: {
-			
-		},
+			// navToggle() {
+		
+            // sidebar.classList.toggle("active-nav")
+            // container.classList.toggle("active-cont")
+			// },
+    },
 	};
 </script>
 <style scoped>
